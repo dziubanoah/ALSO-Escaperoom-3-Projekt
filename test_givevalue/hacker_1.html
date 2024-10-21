@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Console</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: "Courier New", Courier, monospace;
+			background-image: url('bg2.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+        }
+        .console-window {
+            width: 900px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            background-color: #2d2d2d;
+            border: 1px solid #000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+		
+		.console-window2 {
+            width: 900spx;
+            position: absolute;
+            top: 50px;
+            left: 1000px;
+            background-color: #2d2d2d;
+            border: 1px solid #000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .console-title-bar {
+            background-color: #1a1a1a;
+            padding: 10px;
+            color: #fff;
+            font-size: 0.9em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .console-title-bar .buttons {
+            display: flex;
+            gap: 5px;
+        }
+        .console-title-bar .button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ff5f56; /* Close button color */
+        }
+        .console-title-bar .button.minimize {
+            background-color: #ffbd2e; /* Minimize button color */
+        }
+        .console-title-bar .button.maximize {
+            background-color: #27c93f; /* Maximize button color */
+        }
+        .console-content {
+            padding: 20px;
+            color: #ffffff;
+            font-size: 1.2em;
+            height: 500px; /* Adjusted height to fit the new width */
+            overflow-y: auto;
+        }
+		.console-content2 {
+            padding: 20px;
+            color: #ffffff;
+            font-size: 1.2em;
+            height: 600px; /* Adjusted height to fit the new width */
+            overflow-y: auto;
+        }
+		
+		.button-container {
+            position: absolute;
+            top: 550px; /* Adjust this value to position the buttons correctly below the console window */
+            left: 60px;
+            width: 880px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .button-container button {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1em;
+            cursor: pointer;
+
+        }
+        .button-container button:hover {
+            background-color: #3d3d3d;
+        }
+        #NameInput {
+            color: greenyellow;
+            background-color: black;
+            display: none;
+            padding-top: 1%;
+            padding-bottom: 1%;
+        }
+        #submit {
+            color: greenyellow;
+            background-color: black;
+            display: none;
+            padding-top: 1%;
+            padding-bottom: 1%;
+        }
+		
+    </style>
+</head>
+<body>
+    <div class="console-window">
+        <div class="console-title-bar">
+            <span>Command Prompt</span>
+            <div class="buttons">
+                <div class="button close"></div>
+                <div class="button minimize"></div>
+                <div class="button maximize"></div>
+            </div>
+        </div>
+        <div class="console-content">
+			<img src="logo.png" width="100%"></img> <br>
+            
+			<p>Hallo Teilnehmer, hier erhaltet ihr eure Aufgaben: <br>
+			Generelle Aufgabe: Verschafft euch zugang zu der Schulinski GmbH. Infiltriert die Systeme und erlangt Zugang zu dem Server der Firma. <br>
+			Verschafft euch dann Zugang zum Online Bankkonto und macht uns reich ;) <br>
+			<br>
+			Eure erste Aufgabe ist es, euch Zugang zu einem User Account der Firma zu holen. Schaut euch dafür mal auf deren Hompage um, evtl. findet ihr ja einen Kandidaten. <br>
+			Ich gebe euch dafür ein PAar Tools in die Hand. <br>Vorher muss aber euer Team Name festgelegt werden.</p>
+            <div>
+            <form>
+                <input type="text" id="NameInput" placeholder="Team Name" maxlength="15" minlength="3" required title="Maximal 15 Zeichen">
+                <input type="submit" id="submit" value="Name bestätigen">
+            </form>
+            <a id="a">test</a>
+            
+            </div>
+        </div>
+    </div>
+	
+	<div class="console-window2">
+        <div class="console-title-bar">
+            <span>BlackEye Phishing Tool</span>
+            <div class="buttons">
+                <div class="button close"></div>
+                <div class="button minimize"></div>
+                <div class="button maximize"></div>
+            </div>
+        </div>
+        <div class="console-content2">
+		<iframe width="800px" height="600px" src="http://192.168.66.20:5810" title="Putty"></iframe>
+            
+        </div>
+    </div>
+	
+	 <div class="button-container">
+		<a href="hacker.html">
+			<button>Back</button>
+		</a>
+		<a href="Aufgabe2.html">
+			<button>Next</button>
+            <script src="Keks.js"></script>
+            <script src="givevalue.js"></script>
+		</a>
+    </div>
+    <!--Geschrieben von Kevin L.-->
+</body>
+</html>

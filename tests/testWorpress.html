@@ -1,0 +1,43 @@
+<form class="Formular">
+<input id="Name" type="Text" placeholder="bsp. Max.Muster" class="FormInput"><br><br>
+<input id="Password" type="password" placeholder="Passwort" class="FormInput"><br><br>
+<input id="Submit" type="submit" class="FormInput">
+</form>
+
+<style>
+    .Formular {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .FormInput {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        font-size: 18px;
+    }
+</style>
+
+<script>
+    let Name = document.getElementById("Name");
+    let PW = document.getElementById("Password");
+    let Submit = document.getElementById("Submit");
+
+
+    Submit.addEventListener("click", function() {
+            let Silke = "Silke.Friedman"
+            let SilkePW = "Arthos"
+        if(Name.value == Silke && PW.value == SilkePW) {
+            window.open("http://localhost/wordpress-6.2.2/wordpress/mitarbeiter-login-landing-page/")
+        }
+        else if (Name.value == Silke && PW.value != SilkePW){
+            window.alert("Passwort ist falsch");
+        }
+        else if (Name.value != Silke && PW.value == SilkePW){
+            window.alert("Mail addresse ist ist falsch");
+        }
+        else {
+            window.alert("Passwort und Email addresse ist falsch")
+        }
+    });
+</script>

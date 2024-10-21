@@ -1,0 +1,1 @@
+Das PHP script befindet sich in serverscripts ordner (das selbe, das auch für die Überweisungsbestätigung verantwortlich ist.)
