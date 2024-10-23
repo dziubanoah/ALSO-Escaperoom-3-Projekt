@@ -31,7 +31,7 @@
         const DataToSend ={
             name: Name.value,
             PW: PW.value
-        }
+            }
 
         fetch("http://localhost:187", {
             method: "POST",
@@ -44,6 +44,6 @@
         .then(data => {
             window.alert(data)
         })
-    
+    window.alert(DataToSend)
     });
 </script>
