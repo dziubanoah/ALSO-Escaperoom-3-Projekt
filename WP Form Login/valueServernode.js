@@ -1,30 +1,24 @@
-let http = require("http");
+var qs = require("querystring");
 
-// Erstelle den Server
-http.createServer(function(request, response) {
+function one (request, response){
     // CORS-Header setzen, um Anfragen von anderen Ursprüngen zu erlauben
     response.setHeader("Access-Control-Allow-Origin", "*");
-    response.setHeader("Content-Type", "application/json"); // Tippfehler korrigiert
+    response.setHeader("Content-Type", "application/json");
 
-    // Überprüfen, ob die Anfrage eine POST-Anfrage ist
-    if (request.method === 'POST') {
-        let body = '';
+    if (request.method == 'POST') {
+        var body = '';
 
-        // Daten aus dem Request-Body sammeln
-        request.on('data', chunk => {
-            body += chunk.toString(); // Daten in String umwandeln
+        request.on('data', function (data) {
+            body += data;
+
+            if (body.length > 1e6) {
+                request.connection.destroy();
+            }
         });
 
-        // Sobald die gesamte Anfrage eingegangen ist
-        request.on('end', () => {
-            console.log('Received:', body); // Eingehende Daten ausgeben
-            response.end(JSON.stringify({ message: 'Daten empfangen!', receivedData: body })); // Antwort mit den empfangenen Daten
-        });
-    } else {
-        // Wenn die Anfrage nicht POST ist
-        response.statusCode = 405; // Method Not Allowed
-        response.end(JSON.stringify({ message: 'Nur POST-Anfragen sind erlaubt.' }));
+        request.on("end", function () {
+            var post = qs.parse(body);
+        })
     }
-}).listen(187, () => {
-    console.log('Server läuft auf http://localhost:187');
-});
+
+}

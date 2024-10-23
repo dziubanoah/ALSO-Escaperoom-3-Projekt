@@ -33,17 +33,17 @@
             PW: PW.value
             }
 
-        fetch("http://localhost:187", {
+        fetch("valueServernode.js", {
             method: "POST",
             headers: {
             "Content-Type": "application/json"
         },
             body: JSON.stringify(DataToSend)
         })
-        .then(Response => Response.json())
+        .then(reqq => reqq.text())
         .then(data => {
-            window.alert(data)
-        })
-    window.alert(DataToSend)
+            console.log(data)
+        } 
+        )
     });
 </script>
