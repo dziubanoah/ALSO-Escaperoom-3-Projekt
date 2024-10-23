@@ -1,0 +1,49 @@
+<form class="Formular">
+<input id="Name" type="Text" placeholder="bsp. Max.Muster" class="FormInput"><br><br>
+<input id="Password" type="password" placeholder="Passwort" class="FormInput"><br><br>
+<input id="Submit" type="submit" class="FormInput">
+</form>
+
+<style>
+    .Formular {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .FormInput {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        font-size: 18px;
+    }
+</style>
+<p id="output-p"></p>
+<script>
+    let Name = document.getElementById("Name");
+    let PW = document.getElementById("Password");
+    let Submit = document.getElementById("Submit");
+    let output = document.getElementById("output-p")
+    let all = [Name.value, PW.value];
+    let i = 0;
+
+    Submit.addEventListener("click", function() {
+        all = [Name.value, PW.value];
+        const DataToSend ={
+            name: Name.value,
+            PW: PW.value
+        }
+
+        fetch("http://localhost:187", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+        },
+            body: JSON.stringify(DataToSend)
+        })
+        .then(Response => Response.json())
+        .then(data => {
+            window.alert(data)
+        })
+    
+    });
+</script>
