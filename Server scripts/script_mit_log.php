@@ -1,6 +1,7 @@
 <?php
 // erlaubt cors
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Max-Age: 31536000");  // Speichert die CORS-Erlaubnis auf 1 Jahr (Für immer nich möglich)
 
