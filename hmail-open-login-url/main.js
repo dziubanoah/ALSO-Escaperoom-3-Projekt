@@ -1,8 +1,8 @@
 import fs from "fs";
 import open from "open";
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer"; //Import für das Paket puppeteer.
 
-fs.watch('folder123', (eventType, filename) => {
+fs.watch('C:/Program Files (x86)/hMailServer/Data/schulinski.onmicrosoft.com/Silke.Friedmann', (eventType, filename) => {
     console.log(eventType);
     console.log(filename);
     if (eventType == 'rename') {
@@ -13,15 +13,15 @@ fs.watch('folder123', (eventType, filename) => {
 
 async function runbrowser () {
     console.log("runbrowser function klappt.");
-    const browser = await puppeteer.launch({ headless: false});
+    const browser = await puppeteer.launch({ headless: false}); //sorgt dafür dass es nicht Headless passiert (Browser könnten bei true Meckern)
     const page = await browser.newPage();
-    await page.goto('http://localhost:12220/');
-    await page.type('#email', 'test@domain.xyz'); 
-    await page.type('#PW', 'test');
-    await page.click('#submit');
-    await page.waitForTimeout(5000);
-    await page.screenshot({ path: 'login_verification.png' });
-    await browser.close();
+    await page.goto('http://192.168.66.54:5555/login.html'); //Zu öffnende Seite
+    await page.type('#user_login', 'testatdomain.xyz'); //Schreibt die Addresse testatdomain.xyz in das Feld mit der ID user_login
+    await page.type('#user_pass', 'testxyz'); //Schreibt testxyz in das feld: user_pass.
+    await page.click('#wp-submit'); //Bestätigt die Eingabe mit einem Klick. ist bei black eye von seite zu seit unterschiedlich.
+    //await page.waitForTimeout(5000); // nicht unterstützt für jede Version von puppeteer. Wartet einfach 5 Sekunden, bevor der screenshot gemacht wird
+    await page.screenshot({ path: 'login_verification.png' }); //macht einen screenshot zum proof und legt die Datei im selben verzeichniss ab.
+    await browser.close(); //Schließt den Browser. Ohne währe das script false.
 }
 
 
