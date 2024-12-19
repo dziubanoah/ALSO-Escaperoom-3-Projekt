@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test ID</title>
+</head>
+<body>
+    <input type="email" id="email">
+    <input type="password" id="PW">
+    <input type="submit" id="submit">
+    <script>
+        let email = document.getElementById("email");
+        let PW = document.getElementById("PW");
+        let submit = document.getElementById("submit");
+
+        submit.addEventListener("click", function() {
+            if (email.value == "test@domain.xyz" && PW.value == "test") {
+                window.open("https://google.com");
+            }
+        })
+    </script>
+</body>
+</html>

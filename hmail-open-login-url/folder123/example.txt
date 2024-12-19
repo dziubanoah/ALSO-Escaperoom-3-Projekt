@@ -1,0 +1,37 @@
+const puppeteer = require('puppeteer');
+
+(async () => {
+  // Starte den Browser
+  const browser = await puppeteer.launch({ headless: false }); // headless: false öffnet ein sichtbares Fenster
+  const page = await browser.newPage();
+
+  // Öffne die Amazon-Seite
+  await page.goto('https://www.amazon.de');
+
+  // Klicke auf den Login-Button
+  await page.click('#nav-link-accountList'); // ID des Login-Links
+
+  // Warte, bis die Anmeldeseite geladen ist
+  await page.waitForSelector('#ap_email'); // ID des Email-Eingabefeldes
+
+  // Gib die E-Mail-Adresse ein
+  await page.type('#ap_email', 'deine-email@beispiel.com'); // Email eingeben
+
+  // Klicke auf "Weiter"
+  await page.click('#continue');
+
+  // Warte, bis das Passwortfeld erscheint
+  await page.waitForSelector('#ap_password');
+
+  // Gib das Passwort ein
+  await page.type('#ap_password', 'deinPasswort');
+
+  // Klicke auf den Anmelden-Button
+  await page.click('#signInSubmit');
+
+  // Warten, damit du die Ergebnisse sehen kannst
+  await page.waitForTimeout(5000);
+
+  // Browser schließen
+  await browser.close();
+})();
