@@ -13,23 +13,15 @@ fs.watch('folder123', (eventType, filename) => {
 
 async function runbrowser () {
     console.log("runbrowser function klappt.");
-    try {
-        const browser = await puppeteer.launch({ headless: true }); // headless für unsichtbaren Browser
-        const page = await browser.newPage();
-
-        await page.goto('https://developer.chrome.com');
-
-        await page.setViewport({ width: 1009, height: 1024 });
-
-        await page.type('.devsite-search-field', 'automate beyond recorder');
-
-        await page.screenshot({ path: 'screenshot.png' });
-        console.log("Screenshot gemacht. Überprüfe 'screenshot.png' im Arbeitsverzeichnis.");
-
-        await browser.close();
-    } catch (error) {
-        console.error("Fehler bei der Puppeteer-Ausführung:", error);
-    }
+    const browser = await puppeteer.launch({ headless: false});
+    const page = await browser.newPage();
+    await page.goto('http://localhost:12220/');
+    await page.type('#email', 'test@domain.xyz'); 
+    await page.type('#PW', 'test');
+    await page.click('#submit');
+    await page.waitForTimeout(5000);
+    await page.screenshot({ path: 'login_verification.png' });
+    await browser.close();
 }
 
 
