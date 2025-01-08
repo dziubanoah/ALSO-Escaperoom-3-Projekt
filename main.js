@@ -1,6 +1,6 @@
 document.getElementById('Button1').addEventListener('click', function() {
     window.alert("clicked")
-    fetch('http://192.168.1.194/script_mit_log.php', {
+    fetch('http://192.168.1.143:7953/', {
         method: 'GET',
     })
     .then(response => response.text())
