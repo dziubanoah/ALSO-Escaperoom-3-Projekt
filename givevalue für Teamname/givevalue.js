@@ -6,12 +6,13 @@ submit2.addEventListener('click', function(event) {
     const values2 = input2.value; 
     console.log(values2);
 
-    fetch('http://192.168.1.156/Teamname_log.php', {
+    fetch('http://192.168.1.143:7953/', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'text/plain',
         },
-        body: 'inputValue=' + encodeURIComponent(values2), 
+        body: values2,
+        mode: "no-cors"
     })
     .then(response => response.text())
     .then(data => {
