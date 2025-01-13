@@ -15,7 +15,7 @@ function getClientId() {
 let clientId = getClientId();
 console.log("Client ID:", clientId);
 
-/*if (clientId === 'client-1736347822009-0.vn19k3ym09') {
+if (clientId === 'client-1736347822009-0.vn19k3ym09') {
     input.style.display= "block"; 
     submit.style.display= "block";
 
@@ -24,6 +24,3 @@ else (
     console.log("Die coockie ID aus main.js ist nicht korrekt")
 );
     window.alert("keks check durchgeführt");
-    */
-    input.style.display= "block"; 
-    submit.style.display= "block";

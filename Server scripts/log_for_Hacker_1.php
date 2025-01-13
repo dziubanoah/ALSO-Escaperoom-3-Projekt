@@ -14,4 +14,5 @@ $logEintrag = "Team: $team, Datum: $datum, Zeit: $zeit\n";
 //damit man nicht so dumm ist wie ich: DIE log.txt SOLLTE IM SELBEN VERZEICHNISS EXISTIEREN  ^^
 file_put_contents('log.txt', $logEintrag, FILE_APPEND);
 
+//wird in der aktuellen Version nicht benötigt.
 ?>

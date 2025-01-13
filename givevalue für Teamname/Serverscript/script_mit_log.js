@@ -15,8 +15,8 @@ http.createServer(function(req, res) {
     req.on("data", chunk => body += chunk); //empfängt und verarbeitet die Daten, in die Variable body.
     req.on("end", () => {
         if (req.method == "POST") {
-            console.log("POST req success" + " " + body);
-            //fs.appendFileSync("test.txt", "Hallo es gettet\n");
+            console.log("POST req works" + " " + body);
+            fs.appendFileSync("test.txt", "Teamname: " + body + " Zeit des Logs: " + date + "\n");
         } 
     })
 

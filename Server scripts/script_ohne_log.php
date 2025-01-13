@@ -19,4 +19,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 } else {
     echo "Nur GET-Anfragen werden akzeptiert.";
 }
+//wird aktuell nicht benutzt.
 ?>
