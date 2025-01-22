@@ -1,7 +1,6 @@
 import fs from "fs";
 import open from "open";
 import puppeteer from "puppeteer"; //Import für das Paket puppeteer.
-let runScript = true;
 
 fs.watch('C:/Program Files (x86)/hMailServer/Data/schulinski.onmicrosoft.com/Silke.Friedmann', (eventType, filename) => {
     console.log(eventType);
@@ -9,7 +8,6 @@ fs.watch('C:/Program Files (x86)/hMailServer/Data/schulinski.onmicrosoft.com/Sil
     if (eventType == 'rename' && runScript == true) {
         console.log("Wauuu")
         runbrowser();
-        runScript = false;
         return "Done"
     }
 });
